@@ -1,5 +1,5 @@
 import tweepy, time, sys
-from  credentials import keys # This goes into samplekeys.py and takes the "keys" set. You can also specify another set of keys.
+from  credentials import keys
  
 argfile = str(sys.argv[1]) # You will need to pass a .txt file as an argument in order to assign this.
  
@@ -8,13 +8,13 @@ CONSUMER_SECRET = keys['consumer_secret']
 ACCESS_TOKEN = keys['access_token']
 ACCESS_TOKEN_SECRET = keys['access_token_secret']
 
-# Set up OAuth - basically logging into the account.
+# Set up OAuth - log into the account.
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
  
 filename=open(argfile,'r')
-f=filename.readlines() # Read the lines of the textfile one-by-one 
+f=filename.readlines() # Read the lines of the file one-by-one 
 filename.close()
  
 for line in f:
